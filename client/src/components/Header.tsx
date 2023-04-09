@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Badge, Box, IconButton } from "@mui/material";
 import {
   PersonOutlined,
@@ -8,10 +7,14 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../theme";
+import { setIsCartOpen } from "../state/cartSlice";
+import { useAppSelector } from "../composables/useAppSelector";
+import { useAppDispatch } from "../composables/useAppDispatch";
 
-const Navbar = () => {
+const Header = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector((state) => state.cart.cart);
 
   return (
     <Box
@@ -50,9 +53,11 @@ const Navbar = () => {
           <IconButton>
             <PersonOutlined />
           </IconButton>
-          <IconButton>
-            <ShoppingBagOutlined />
-          </IconButton>
+          <Badge badgeContent={cart.length} color="secondary">
+            <IconButton onClick={() => dispatch(setIsCartOpen())}>
+              <ShoppingBagOutlined />
+            </IconButton>
+          </Badge>
           <IconButton>
             <MenuOutlined />
           </IconButton>
@@ -62,4 +67,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
