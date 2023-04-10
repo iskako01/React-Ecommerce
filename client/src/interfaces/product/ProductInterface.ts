@@ -1,13 +1,27 @@
 export interface ProductInterface {
+  count: number;
+  attributes: {
+    price: number;
+    name: string;
+    shortDescription: string;
+    image: {
+      data: {
+        attributes: {
+          formats: {
+            medium: {
+              url: string;
+            };
+          };
+        };
+      };
+    };
+  };
   id: number;
   name: string;
-  shortDescription: string;
   longDescription: string;
-  price: number;
   category: string;
   createdAt: string;
   publishedAt: string;
-  image: string;
   createdBy: string | null;
   updatedBy: string | null;
 }

@@ -23,6 +23,7 @@ export const cartSlice = createSlice({
     },
     setIsCartOpen: (state) => {
       state.isCartOpen = !state.isCartOpen;
+      console.log(state.isCartOpen);
     },
     addToCart: (state, action: PayloadAction<ProductInterface>) => {
       state.cart.push(action.payload.item);
