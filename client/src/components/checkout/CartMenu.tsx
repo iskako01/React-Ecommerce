@@ -76,12 +76,14 @@ const CartMenu = () => {
             </Box>
             <Button
               sx={{
+                display: "flex",
                 backgroundColor: shades.primary[400],
                 color: "#ffffff",
                 borderRadius: 0,
-                minWidth: "100%",
+                minWidth: "200px",
+                maxWidth: "320px",
                 padding: "20px 40px",
-                m: "20px 0",
+                m: "20px auto",
                 ":hover": { backgroundColor: shades.primary[300] },
               }}
               onClick={navigateToCheckout}

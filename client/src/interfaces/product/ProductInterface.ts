@@ -4,6 +4,7 @@ export interface ProductInterface {
     price: number;
     name: string;
     shortDescription: string;
+    category: string;
     image: {
       data: {
         attributes: {
@@ -19,7 +20,6 @@ export interface ProductInterface {
   id: number;
   name: string;
   longDescription: string;
-  category: string;
   createdAt: string;
   publishedAt: string;
   createdBy: string | null;
