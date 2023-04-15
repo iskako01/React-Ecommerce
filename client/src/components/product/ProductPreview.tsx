@@ -33,6 +33,11 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
     },
   } = image;
 
+  const imageUrl = `http://localhost:1337${url}`;
+  const categoryTitle = category
+    .replace(/([A-Z])/g, "1$")
+    .replace(/^./, (str) => str.toUpperCase());
+
   return (
     <Box width={width}>
       <Box
@@ -41,7 +46,7 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
         onMouseOut={() => setIsHovered(false)}
       >
         <img
-          src={`http://localhost:1337${url}`}
+          src={imageUrl}
           alt={item.name}
           width="300px"
           height="400px"
@@ -87,10 +92,8 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
       </Box>
 
       <Box mt="5px">
-        <Typography variant="subtitle2" color={neutral.dark}>
-          {category
-            .replace(/([A-Z])/g, "1$")
-            .replace(/^./, (str) => str.toUpperCase())}
+        <Typography variant="subtitle2" sx={{ color: neutral.dark }}>
+          {categoryTitle}
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">${price}</Typography>
