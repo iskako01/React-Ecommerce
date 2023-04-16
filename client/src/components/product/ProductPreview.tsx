@@ -10,7 +10,7 @@ import { ThemeOptionInterface } from "../../interfaces/theme/ThemeOptionInterfac
 
 interface PropsInterface {
   item: ProductInterface;
-  width: number;
+  width: string;
 }
 
 const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
@@ -35,7 +35,7 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
 
   const imageUrl = `http://localhost:1337${url}`;
   const categoryTitle = category
-    .replace(/([A-Z])/g, "1$")
+    .replace(/([A-Z])/g, " $1")
     .replace(/^./, (str) => str.toUpperCase());
 
   return (
