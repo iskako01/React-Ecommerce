@@ -45,7 +45,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <Box width="80%" margin="80px auto">
+    <Box width="100%" margin="80px auto">
       <Typography variant="h3" textAlign="center">
         Our Featured <b>Products</b>
       </Typography>
@@ -68,7 +68,7 @@ const ProductList = () => {
         display="grid"
         gridTemplateColumns="repeat(auto-fill, 300px)"
         justifyContent="space-around"
-        sx={{ rowGap: "20px", colomnGap: "1.5%" }}
+        gap="20px"
       >
         {categoryFilter().map((item, index) => (
           <ProductPreview

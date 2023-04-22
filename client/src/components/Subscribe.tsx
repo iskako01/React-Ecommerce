@@ -5,6 +5,8 @@ import { MarkEmailReadOutlined } from "@mui/icons-material";
 const Subscribe = () => {
   const [email, setEmail] = useState("");
 
+  //   TODO Add subcribe in server
+
   return (
     <Box width="80%" margin="80px auto" textAlign="center">
       <IconButton>

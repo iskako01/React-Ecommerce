@@ -11,4 +11,17 @@ body {
 
 .app {
   margin: auto;
+  max-width: 1500px;
+  min-width: 320px;
+}
+
+.link,
+a {
+  color: #000000;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
