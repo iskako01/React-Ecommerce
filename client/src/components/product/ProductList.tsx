@@ -74,7 +74,7 @@ const ProductList = () => {
           <ProductPreview
             item={item}
             width="270px"
-            key={`product-preview-${item.name}-${index}`}
+            key={`product-preview-${item.attributes.name}-${index}`}
           />
         ))}
       </Box>

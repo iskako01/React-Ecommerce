@@ -47,7 +47,7 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
       >
         <img
           src={imageUrl}
-          alt={item.name}
+          alt={item.attributes.name}
           width="300px"
           height="400px"
           onClick={() => navigate(`/product/${item.id}`)}
