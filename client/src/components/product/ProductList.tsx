@@ -17,7 +17,7 @@ const ProductList = () => {
   };
 
   //   TODO Move it
-  const getItems = async () => {
+  const getProducts = async () => {
     const response = await fetch(
       "http://localhost:1337/api/items?populate=image",
       { method: "GET" }
@@ -41,7 +41,7 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    getItems();
+    getProducts();
   }, []);
 
   return (

@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
       console.log(state.isCartOpen);
     },
     addToCart: (state, action: PayloadAction<ProductInterface>) => {
-      state.cart.push(action.payload.item);
+      state.cart.push(action.payload);
     },
     removeFromCart: (state, action: PayloadAction<any>) => {
       state.cart = state.cart.filter(

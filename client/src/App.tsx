@@ -25,7 +25,7 @@ const App = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:itemId" element={<ProductDetails />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/checkout/success" element={<Confirmation />} />
       </Routes>
