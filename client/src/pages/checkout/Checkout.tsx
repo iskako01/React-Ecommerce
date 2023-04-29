@@ -71,6 +71,7 @@ const Checkout = () => {
             touched,
             handleBlur,
             handleSubmit,
+            handleChange,
             setFieldValue,
           }) => (
             <form>
@@ -80,7 +81,7 @@ const Checkout = () => {
                   errors={errors}
                   touched={touched}
                   handleBlur={handleBlur}
-                  handleSubmit={handleSubmit}
+                  handleChange={handleChange}
                   setFieldValue={setFieldValue}
                 />
               )}

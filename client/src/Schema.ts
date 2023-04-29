@@ -46,7 +46,7 @@ export const checkoutSchema = [
     }),
   }),
   yup.object().shape({
-    email: yup.string().required("required"),
+    email: yup.string().required("required").email(),
     phoneNumber: yup.string().required("required"),
   }),
 ];
