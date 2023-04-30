@@ -51,7 +51,7 @@ const Checkout = () => {
     actions: any
   ) => {
     setActiveStep(activeStep + 1);
-    console.log(values, actions);
+    console.log({ values, actions });
 
     if (isFirstStep && values.shippingAddress.isSameAddress) {
       actions.setFieldValue("shippingAddress", {
@@ -119,7 +119,7 @@ const Checkout = () => {
             handleChange,
             setFieldValue,
           }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               {isFirstStep && (
                 <Shipping
                   values={values}
@@ -131,7 +131,7 @@ const Checkout = () => {
                 />
               )}
 
-              {isFirstStep && (
+              {isSecondStep && (
                 <Payment
                   values={values}
                   errors={errors}
@@ -142,7 +142,7 @@ const Checkout = () => {
               )}
 
               <Box display="flex" justifyContent="space-between" gap="50px">
-                {isSecondStep && (
+                {!isSecondStep && (
                   <Button
                     fullWidth
                     color="primary"
