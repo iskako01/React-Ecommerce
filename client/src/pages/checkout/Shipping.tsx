@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
-import { checkoutInitialValuesInterface } from "../../interfaces/checkout/CheckoutInitialValuesInterface";
+import { CheckoutInitialValuesInterface } from "../../interfaces/checkout/CheckoutInitialValuesInterface";
 import { FormikErrors, FormikTouched } from "formik";
 import AddressForm from "../../components/checkout/AddressForm";
 
 interface PropsInterface {
-  values: checkoutInitialValuesInterface;
-  errors: FormikErrors<checkoutInitialValuesInterface>;
-  touched: FormikTouched<checkoutInitialValuesInterface>;
+  values: CheckoutInitialValuesInterface;
+  errors: FormikErrors<CheckoutInitialValuesInterface>;
+  touched: FormikTouched<CheckoutInitialValuesInterface>;
   handleBlur: any;
   handleChange: {
     (e: React.ChangeEvent<any>): void;
@@ -45,7 +45,7 @@ const Shipping: FC<PropsInterface> = ({
         <Typography>Billing Information</Typography>
         <AddressForm
           type="billingAddress"
-          value={values.billingAddress}
+          values={values.billingAddress}
           errors={errors}
           touched={touched}
           handleBlur={handleBlur}

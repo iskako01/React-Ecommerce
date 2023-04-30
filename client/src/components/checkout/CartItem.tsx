@@ -26,7 +26,12 @@ const CartItem: FC<PropsInterface> = ({ item }) => {
       alignItems="center"
     >
       <Box flex="1 1 40%">
-        <img src={imageUrl} alt={item?.name} width="123px" height="164px" />
+        <img
+          src={imageUrl}
+          alt={item?.attributes.name}
+          width="123px"
+          height="164px"
+        />
       </Box>
 
       <Box flex="1 1 60%">

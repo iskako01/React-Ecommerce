@@ -78,7 +78,7 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
             </Box>
 
             <Button
-              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
+              onClick={() => dispatch(addToCart({ ...item, count }))}
               sx={{
                 backgroundColor: shades.primary[400],
                 color: "#ffffff",
@@ -92,7 +92,7 @@ const ProductPreview: FC<PropsInterface> = ({ item, width }) => {
       </Box>
 
       <Box mt="5px">
-        <Typography variant="subtitle2" sx={{ color: neutral.dark }}>
+        <Typography variant="subtitle2" sx={{ color: shades.neutral[700] }}>
           {categoryTitle}
         </Typography>
         <Typography>{name}</Typography>

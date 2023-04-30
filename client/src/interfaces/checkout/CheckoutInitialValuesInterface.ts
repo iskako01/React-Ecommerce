@@ -1,7 +1,7 @@
 import { CheckoutBillingAddressinterface } from "./CheckoutBillingAddressinterface";
 import { CheckoutShippingAddressinterface } from "./CheckoutShippingAddressinterface";
 
-export interface checkoutInitialValuesInterface {
+export interface CheckoutInitialValuesInterface {
   billingAddress: CheckoutBillingAddressinterface;
   shippingAddress: CheckoutShippingAddressinterface;
   email: string;
