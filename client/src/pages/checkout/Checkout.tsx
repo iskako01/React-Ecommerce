@@ -89,7 +89,7 @@ const Checkout = () => {
 
     const session = await response.json();
 
-    await stripe.redirectToCheckout({
+    await stripe?.redirectToCheckout({
       sessionId: session.id,
     });
   };
@@ -171,7 +171,6 @@ const Checkout = () => {
                     borderRadius: 0,
                     padding: "15px 40px",
                   }}
-                  onClick={() => setActiveStep(activeStep - 1)}
                 >
                   {isFirstStep ? "Next" : "Pace Order"}
                 </Button>
