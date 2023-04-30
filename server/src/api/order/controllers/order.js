@@ -7,10 +7,9 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const { createCoreController } = require("@strapi/strapi").factories;
 
-module.exports = createCoreController("api::order.order", ({ stripe }) => ({
+module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     const { products, userName, email } = ctx.request.body;
-
     try {
       const lineItems = await Promise.all(
         products.map(async (product) => {
@@ -35,19 +34,19 @@ module.exports = createCoreController("api::order.order", ({ stripe }) => ({
         payment_method_types: ["card"],
         customer_email: email,
         mode: "payment",
-        success_url: "http://localhost:3000/checkout/success",
-        cancel_url: "http://localhost:3000",
+        success_url: "http://localhost:5173/checkout/success",
+        cancel_url: "http://localhost:5173/error",
         line_items: lineItems,
       });
 
-      await strapi.service("api::order.order").create({
-        data: { userName, products, stripeSessionId: session.id },
-      });
+      await strapi
+        .service("api::order.order")
+        .create({ data: { userName, products, stripeSessionId: session.id } });
 
       return { id: session.id };
     } catch (error) {
       ctx.response.status = 500;
-      return { error: { message: "There was a problem creating the charge." } };
+      return { error: { message: "There was a problem creating the charge" } };
     }
   },
 }));

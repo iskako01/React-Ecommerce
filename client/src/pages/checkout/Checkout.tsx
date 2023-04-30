@@ -51,7 +51,6 @@ const Checkout = () => {
     actions: any
   ) => {
     setActiveStep(activeStep + 1);
-    console.log({ values, actions });
 
     if (isFirstStep && values.shippingAddress.isSameAddress) {
       actions.setFieldValue("shippingAddress", {
@@ -69,6 +68,7 @@ const Checkout = () => {
 
   const makePayment = async (values: CheckoutInitialValuesInterface) => {
     const stripe = await stripePromise;
+
     const requestBody = {
       userName: [
         values.billingAddress.firstName,
@@ -172,7 +172,7 @@ const Checkout = () => {
                     padding: "15px 40px",
                   }}
                 >
-                  {isFirstStep ? "Next" : "Pace Order"}
+                  {isFirstStep ? "Next" : "Place Order"}
                 </Button>
               </Box>
             </form>
