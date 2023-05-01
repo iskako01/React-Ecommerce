@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
 import { Formik } from "formik";
+import { loadStripe } from "@stripe/stripe-js";
 import { shades } from "../../theme";
 import { useAppSelector } from "../../composables/useAppSelector";
 import { checkoutSchema } from "../../Schema";
 import { CheckoutInitialValuesInterface } from "../../interfaces/checkout/CheckoutInitialValuesInterface";
+import { useCreateOrdersMutation } from "../../store/api";
 import Shipping from "./Shipping";
 import Payment from "../../components/checkout/Payment";
-import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
   "pk_test_51LMVXHFD8JJ5hOZCagmJAU5jDXwDst89ZH1uAGDAYytx8DpU9KKHWO8VRsilS6qWq9PKn1g5fBBceiJVJhGtMw3x00EFhasQqi"
@@ -42,6 +43,8 @@ const checkoutInitialValues: CheckoutInitialValuesInterface = {
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
   const cart = useAppSelector((state) => state.cart.cart);
+
+  const [createOrders, response] = useCreateOrdersMutation();
 
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
@@ -81,17 +84,18 @@ const Checkout = () => {
       })),
     };
 
-    const response = await fetch("http://localhost:1337/api/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
+    // TODO fix it
+    const body = JSON.stringify(requestBody);
+
+    createOrders(body).then(() => {
+      const session = response.data;
+
+      stripe?.redirectToCheckout({
+        sessionId: session.id,
+      });
     });
 
-    const session = await response.json();
-
-    await stripe?.redirectToCheckout({
-      sessionId: session.id,
-    });
+    console.log(response, body, requestBody);
   };
 
   return (

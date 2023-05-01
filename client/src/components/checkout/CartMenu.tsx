@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Box, IconButton, Typography, Button } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import { setIsCartOpen } from "../../state/cartSlice";
+import { setIsCartOpen } from "../../store/cartSlice";
 import { useAppDispatch } from "../../composables/useAppDispatch";
 import { useAppSelector } from "../../composables/useAppSelector";
 import CartItem from "./CartItem";
 import { shades } from "../../theme";
+import { ProductInterface } from "../../interfaces/product/ProductInterface";
 
 const CartMenu = () => {
   const navigate = useNavigate();
@@ -13,9 +14,7 @@ const CartMenu = () => {
   const cart = useAppSelector((state) => state.cart.cart);
   const isCartOpen = useAppSelector((state) => state.cart.isCartOpen);
 
-  console.log(cart);
-
-  const totalPrice = cart.reduce((total, item) => {
+  const totalPrice = cart.reduce((total: number, item: ProductInterface) => {
     return total + item.count * item.attributes.price;
   }, 0);
 
@@ -58,7 +57,7 @@ const CartMenu = () => {
           </Box>
 
           <Box>
-            {cart.map((item) => (
+            {cart.map((item: ProductInterface) => (
               <CartItem
                 item={item}
                 key={`${item.attributes.name}-${item.id}`}

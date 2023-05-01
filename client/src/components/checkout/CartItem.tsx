@@ -7,7 +7,7 @@ import {
   decreaseCount,
   removeFromCart,
   increaseCount,
-} from "../../state/cartSlice";
+} from "../../store/cartSlice";
 import { shades } from "../../theme";
 
 interface PropsInterface {

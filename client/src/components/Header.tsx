@@ -7,7 +7,7 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../theme";
-import { setIsCartOpen } from "../state/cartSlice";
+import { setIsCartOpen } from "../store/cartSlice";
 import { useAppSelector } from "../composables/useAppSelector";
 import { useAppDispatch } from "../composables/useAppDispatch";
 

@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import { theme } from "./theme";
-import { store } from "./state/store";
+import { store } from "./store/store";
 import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

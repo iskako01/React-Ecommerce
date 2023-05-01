@@ -23,11 +23,8 @@ export const cartSlice = createSlice({
     },
     setIsCartOpen: (state) => {
       state.isCartOpen = !state.isCartOpen;
-      console.log(state.isCartOpen);
     },
     addToCart: (state, action: PayloadAction<ProductInterface>) => {
-      console.log(action.payload);
-
       state.cart.push(action.payload);
     },
     removeFromCart: (state, action: PayloadAction<any>) => {

@@ -3,7 +3,7 @@ import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
 import { shades } from "../../theme";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../state/cartSlice";
+import { addToCart } from "../../store/cartSlice";
 import { ProductInterface } from "../../interfaces/product/ProductInterface";
 import { useAppDispatch } from "../../composables/useAppDispatch";
 import { ThemeOptionInterface } from "../../interfaces/theme/ThemeOptionInterface";
